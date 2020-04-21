@@ -1,0 +1,2 @@
+rootProject.name='MyParcealble'
+include ':app'
