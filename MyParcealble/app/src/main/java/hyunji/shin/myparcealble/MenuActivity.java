@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -28,6 +29,12 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void processIntent(Intent intent){ //
-
+        if(intent != null){
+            Bundle bundle = intent.getExtras(); //그안에 있는 bundle객체로 가져오는 중
+            SimpleData data = bundle.getParcelable("data"); //getParcable라는 인터페이스로 참조하고 있기 때문에+data라는 키를 가진 data가져옴
+            if(data !=null){
+                Toast.makeText(this, "전달받은 객체 : "+ data.code , Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
